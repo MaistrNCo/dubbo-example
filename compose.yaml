@@ -1,0 +1,29 @@
+services:
+  zookeeper:
+    image: "bitnami/zookeeper:latest"
+    environment:
+      - 'ALLOW_ANONYMOUS_LOGIN=yes'
+    ports:
+      - '2181:2181'
+      - '8088:8080'
+  mongodb:
+    image: 'mongo:latest'
+    environment:
+      - 'MONGO_INITDB_DATABASE=logdb'
+#      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
+#      - 'MONGO_INITDB_ROOT_USERNAME=root'
+    volumes:
+      - ~/data/mongo:/data/db
+    ports:
+      - '27017:27017'
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=hellodb'
+      - 'MYSQL_PASSWORD=321cba'
+      - 'MYSQL_ROOT_PASSWORD=cba321'
+      - 'MYSQL_USER=admin'
+    volumes:
+      - ~data/mysql:/var/lib/mysql
+    ports:
+      - '3306:3306'

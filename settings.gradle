@@ -1,0 +1,6 @@
+rootProject.name = 'dubbo-example'
+
+include('dubbo-interface')
+include('dubbo-svc')
+include('dubbo-consumer')
+include('dubbo-dao')
